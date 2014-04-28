@@ -6,12 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Card Management System</title>
-<link href="http://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Electrolize"	rel="stylesheet" type="text/css">
 <style>
+hr {
+	margin: 0;
+}
+
 div#site-wrapper {
-	padding-top: 5px;
+	padding-top: 10px;
 	width: 100%;
-	background-color: white;
+	background-color: #c0c0c0;
 }
 
 div#site {
@@ -21,32 +25,38 @@ div#site {
 	margin-left: auto;
 }
 
-div.header-type {
+div#header {
 	background-color: white;
 	width: 100%;
 	height: 75px;
 }
 
 div#footer {
-	background-color: grey;
+	background-color: #a0a0a0;
 	width: 100%;
 	height: 50px;
 }
 
 div#navigation-panel {
-	background-color: white;
+	display: table;
+	background-color: #f0f0f0;
 	width: 100%;
 	height: 35px;
 }
 
+div#navigation-panel span {
+	vertical-align: middle;
+	display: table-cell;
+}
+
 div#actions-panel {
-	background-color: blue;
+	background-color: white;
 	width: 170px;
 	float: left;
 }
 
 div#content {
-	background-color: grey;
+	background-color: #f9f9f9;
 	width: 300px;
 	float: left;
 }
@@ -57,43 +67,46 @@ div.light-separator {
 }
 
 div.shadow-caster {
-	-moz-box-shadow: 0 1px 6px -2px #000;
-	-webkit-box-shadow: 0 1px 6px -2px #000;
-	box-shadow: 0 1px 6px -2px #000;
+	-moz-box-shadow: 0 1px 5px -2px #000;
+	-webkit-box-shadow: 0 1px 5px -2px #000;
+	box-shadow: 0 1px 5px -2px #000;
 }
 
 div.light-glared-bottom {
-	-moz-box-shadow: inset 0 -3px 5px -3px #00ffff;
-	-webkit-box-shadow: inset 0 -3px 5px -3px #00ffff;
-	box-shadow: inset 0 -3px 5px -3px #00ffff;
+	-moz-box-shadow: inset 0 -3px 5px -3px #ffd700;
+	-webkit-box-shadow: inset 0 -3px 5px -3px #ffd700;
+	box-shadow: inset 0 -3px 5px -3px #ffd700;
 }
 
 div.light-glared-above {
-	-moz-box-shadow: inset 0 3px 5px -3px #00ffff;
-	-webkit-box-shadow: inset 0 3px 5px -3px #00ffff;
-	box-shadow: inset 0 3px 5px -3px #00ffff;
+	-moz-box-shadow: inset 0 3px 5px -3px #ffd700;
+	-webkit-box-shadow: inset 0 3px 5px -3px #ffd700;
+	box-shadow: inset 0 3px 5px -3px #ffd700;
 }
 </style>
 </head>
 <body style="position: relative; padding: 0; margin: 0; font-family: 'Electrolize', sans-serif;">
-	<div id="wrapper" style="background-color: #00ffff;">
-		<div class="header-type shadow-caster">
-			<div id="header" class="header-type light-glared-bottom"></div>
+	<div id="wrapper" style="background-color: #ffd700;">
+
+		<div id="header"></div>
+
+		<hr />
+		<div id="navigation-panel" class="shadow-caster">
+			<span>Link 1</span><span>Link 2</span><span>Link 3</span><span>Link	4</span><span>Link 5</span><span>Link 6</span><span>Link 7</span>
 		</div>
 		<div class="light-separator"></div>
-		<div class="shadow-caster">
-			<div id="navigation-panel" class="light-glared-bottom"></div>
-		</div>
-		<div class="light-separator"></div>
-		<div id="site-wrapper">
+		<div id="site-wrapper" class="light-glared-above">
 			<div id="site">
-				<div id="actions-panel">PANEL</div>
+				<div id="actions-panel">
+					<tiles:insertAttribute name="panel" />
+				</div>
 				<div id="content">
-					<tiles:insertAttribute name="body"/>
+					<tiles:insertAttribute name="body" />
 				</div>
 				<div style="clear: both;"></div>
 			</div>
 		</div>
+
 		<div id="footer"></div>
 	</div>
 </body>
