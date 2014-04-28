@@ -34,7 +34,7 @@ div#footer {
 }
 
 div#navigation-panel {
-	background-color: #f0f0f0;
+	background-color: white;
 	width: 100%;
 	height: 35px;
 }
