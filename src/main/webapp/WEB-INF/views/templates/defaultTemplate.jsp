@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Card Management System</title>
-</head>
+<link href="http://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet" type="text/css">
 <style>
 div#site-wrapper {
 	padding-top: 5px;
@@ -63,19 +63,20 @@ div.shadow-caster {
 }
 
 div.light-glared-bottom {
-	-moz-box-shadow: inset 0 -3px 5px -3px #00d8ff;
-	-webkit-box-shadow: inset 0 -3px 5px -3px #00d8ff;
-	box-shadow: inset 0 -3px 5px -3px #00d8ff;
+	-moz-box-shadow: inset 0 -3px 5px -3px #00ffff;
+	-webkit-box-shadow: inset 0 -3px 5px -3px #00ffff;
+	box-shadow: inset 0 -3px 5px -3px #00ffff;
 }
 
 div.light-glared-above {
-	-moz-box-shadow: inset 0 3px 5px -3px #00d8ff;
-	-webkit-box-shadow: inset 0 3px 5px -3px #00d8ff;
-	box-shadow: inset 0 3px 5px -3px #00d8ff;
+	-moz-box-shadow: inset 0 3px 5px -3px #00ffff;
+	-webkit-box-shadow: inset 0 3px 5px -3px #00ffff;
+	box-shadow: inset 0 3px 5px -3px #00ffff;
 }
 </style>
-<body style="position: relative; padding: 0; margin: 0">
-	<div id="wrapper" style="background-color: #00d8ff;">
+</head>
+<body style="position: relative; padding: 0; margin: 0; font-family: 'Electrolize', sans-serif;">
+	<div id="wrapper" style="background-color: #00ffff;">
 		<div class="header-type shadow-caster">
 			<div id="header" class="header-type"></div>
 		</div>
