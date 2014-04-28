@@ -78,18 +78,18 @@ div.light-glared-above {
 <body style="position: relative; padding: 0; margin: 0; font-family: 'Electrolize', sans-serif;">
 	<div id="wrapper" style="background-color: #00ffff;">
 		<div class="header-type shadow-caster">
-			<div id="header" class="header-type"></div>
+			<div id="header" class="header-type light-glared-bottom"></div>
 		</div>
 		<div class="light-separator"></div>
 		<div class="shadow-caster">
-			<div id="navigation-panel" class="light-glared-above"></div>
+			<div id="navigation-panel" class="light-glared-bottom"></div>
 		</div>
 		<div class="light-separator"></div>
-		<div id="site-wrapper" class="light-glared-above">
+		<div id="site-wrapper">
 			<div id="site">
 				<div id="actions-panel">PANEL</div>
 				<div id="content">
-					<tiles:insertAttribute name="body" />
+					<tiles:insertAttribute name="body"/>
 				</div>
 				<div style="clear: both;"></div>
 			</div>
