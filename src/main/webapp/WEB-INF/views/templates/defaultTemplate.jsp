@@ -6,8 +6,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Card Management System</title>
-<link href="http://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=Electrolize"
+	rel="stylesheet" type="text/css">
 <style>
+body,html {
+	min-width: 1000px;
+	min-height: 100%;
+	background: #2a2a2a;
+	margin: 0;
+	padding: 0;
+	font-family: 'Electrolize', sans-serif;
+}
+
 hr {
 	display: block;
 	height: 1px;
@@ -17,50 +27,63 @@ hr {
 	padding: 0;
 }
 
-div#site-wrapper {
-	min-width: 1000px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding-left: 170px;
-	padding-top: 75px;
-	right: 0;
-	background: #c0c0c0;
+div#light {
+	width: 100%;
+	height: 80px;
+	background-color: #ffd700;
+	-moz-box-shadow: 0 3px 6px -3px #ffd700;
+	-webkit-box-shadow: 0 3px 6px -3px #ffd700;
+	box-shadow: 0 3px 6px -3px #ffd700;
 }
 
 div#header {
-	z-index: 1;
-	position: fixed;
 	background-color: white;
 	width: 100%;
 	height: 75px;
+	display: table;
 }
 
-div#footer {
-	position: absolute;
-	bottom: 0;
-	background-color: #a0a0a0;
-	left: 0;
-	right: 0;
-	height: 50px;
+div.cell {
+	display: table-cell;
 }
 
-div#actions-panel {
-	z-index: 1;
-	position: fixed;
-	background-color: white;
-	width: 170px;
+div#logo {
+	width: 200px;
+	text-align: left;
+}
+
+div#navigation {
+	text-align: center;
+}
+
+div#account {
+	width: 200px;
+	text-align: right;
+}
+
+div#site-wrapper {
+	min-height: 100%;
+	background: #c0c0c0;
+}
+
+div#site {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #f9f9f9;
+	min-height: 800px;
 	height: 100%;
-	top: 75px;
+	padding: 20px;
 }
 
 div#content {
-	margin-top: 15px;
-	margin-bottom: 50px;
-	margin-right: 100px;
-	background-color: #f9f9f9;
-	min-height: 470px;
 	padding: 20px;
+}
+
+div#footer {
+	background-color: #2a2a2a;
+	height: 50px;
+	width: 100%;
 }
 
 div.shadow-caster {
@@ -68,40 +91,33 @@ div.shadow-caster {
 	-webkit-box-shadow: 1px 1px 5px -2px #000;
 	box-shadow: 1px 1px 5px -2px #000;
 }
-
-div#light {
-	z-index: 1;
-	position: fixed;
-	width: 100%;
-	height: 80px;
-	background-color: #ffd700;
-	-moz-box-shadow: 0 3px 5px -3px #ffd700;
-	-webkit-box-shadow: 0 3px 5px -3px #ffd700;
-	box-shadow: 0 3px 5px -3px #ffd700;
-}
-
-body,html {
-	background: #a0a0a0;
-	margin: 0;
-	padding: 0;
-	font-family: 'Electrolize', sans-serif;
-}
 </style>
 </head>
 <body>
-	<div id="light">
-		<div id="header" class="shadow-caster"></div>
-	</div>
-	<div id="actions-panel" class="shadow-caster">
-		<hr />
-		<tiles:insertAttribute name="panel" />
-	</div>
 
 	<div id="site-wrapper">
-		<div id="content">
-			<tiles:insertAttribute name="body" />
+		<div id="light">
+			<div id="header" class="shadow-caster">
+				<div id="logo" class="cell">Logo</div>
+				<div id="navigation" class="cell">
+					<a><span>Link 1</span></a> 
+					<a><span>Link 2</span></a> 
+					<a><span>Link 3</span></a>
+                    <a><span>Link 4</span></a>
+                    <a><span>Link 5</span></a>
+                    <a><span>Link 6</span></a>
+				</div>
+				<div id="account" class="cell">Logout</div>
+			</div>
 		</div>
-		<div style="clear: both;"></div>
+		<div id="site">
+
+			<div id="content">
+				<tiles:insertAttribute name="body" />
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+
 		<div id="footer"></div>
 	</div>
 </body>
