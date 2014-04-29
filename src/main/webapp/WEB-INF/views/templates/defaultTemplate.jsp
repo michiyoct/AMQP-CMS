@@ -16,6 +16,20 @@ body,html {
 	margin: 0;
 	padding: 0;
 	font-family: 'Electrolize', sans-serif;
+	color: #2a2a2a;
+}
+
+a:link,a:visited,a:hover,a:active {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:link,a:visited {
+	color: #2a2a2a;
+}
+
+a:hover,a:active {
+	color: #ffd700;
 }
 
 hr {
@@ -37,6 +51,7 @@ div#light {
 }
 
 div#header {
+	min-width: 1000px;;
 	background-color: white;
 	width: 100%;
 	height: 75px;
@@ -45,19 +60,27 @@ div#header {
 
 div.cell {
 	display: table-cell;
+	text-align: center;
+	vertical-align: bottom;
+	padding: 20px;
 }
 
 div#logo {
-	width: 200px;
+	width: 75px;
 	text-align: left;
 }
 
 div#navigation {
-	text-align: center;
+	padding: 20px;
+}
+
+div#navigation span {
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 div#account {
-	width: 200px;
+	width: 75px;
 	text-align: right;
 }
 
@@ -94,20 +117,21 @@ div.shadow-caster {
 </style>
 </head>
 <body>
-
 	<div id="site-wrapper">
 		<div id="light">
 			<div id="header" class="shadow-caster">
 				<div id="logo" class="cell">Logo</div>
 				<div id="navigation" class="cell">
-					<a><span>Link 1</span></a> 
-					<a><span>Link 2</span></a> 
-					<a><span>Link 3</span></a>
-                    <a><span>Link 4</span></a>
-                    <a><span>Link 5</span></a>
-                    <a><span>Link 6</span></a>
+					<span><a href="/">Card Details</a></span>
+					<span><a href="/">Balance</a></span>
+					<span><a href="/">Transactions</a></span> 
+					<span><a href="/">Profiles</a></span>
+					<span><a href="/">Cryptogram</a></span> 
+					<span><a href="/">User Access</a></span>
 				</div>
-				<div id="account" class="cell">Logout</div>
+				<div id="account" class="cell">
+					<span><a href="/">Logout</a></span>
+				</div>
 			</div>
 		</div>
 		<div id="site">
@@ -117,7 +141,6 @@ div.shadow-caster {
 				<div style="clear: both;"></div>
 			</div>
 		</div>
-
 		<div id="footer"></div>
 	</div>
 </body>
