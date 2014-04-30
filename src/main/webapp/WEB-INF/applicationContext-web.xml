@@ -9,13 +9,13 @@
 	<context:component-scan base-package="com.rmpader.projects.cms.web" />
 
 	<mvc:annotation-driven />
+    <mvc:resources location="/resources/**" mapping="/WEB-INF/views/"/>
 
-	<bean
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
+
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
 	</bean>
-	
+
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>
