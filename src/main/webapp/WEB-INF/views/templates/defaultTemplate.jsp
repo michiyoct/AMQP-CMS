@@ -11,26 +11,26 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 </head>
 <body>
-	<div id="floating-nav" class="shadow-caster" style="left:-50px;">
-		<div>
+	<div id="floating-nav" class="shadow-caster rounded-right" style="left:-50px;">
+		<div title="Card Details">
 			<a href="/"><img src="/resources/images/card.png" /></a>
 		</div>
-		<div>
+		<div title="Balance">
 			<a href="/"><img src="/resources/images/coins.png" /></a>
 		</div>
-		<div>
+		<div title="Transactions">
 			<a href="/"><img src="/resources/images/arrows.png" /></a>
 		</div>
-		<div>
+		<div title="Profiles">
 			<a href="/"><img src="/resources/images/profile.png" /></a>
 		</div>
-		<div>
+		<div title="Cryptogram">
 			<a href="/"><img src="/resources/images/key.png" /></a>
 		</div>
-		<div>
+		<div title="User Access">
 			<a href="/"><img src="/resources/images/stop.png" /></a>
 		</div>
-		<div>
+		<div title="Errors">
 			<a href="/"><img src="/resources/images/error.png" /></a>
 		</div>
 	</div>
@@ -84,11 +84,14 @@
 		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script>
 		$(document).ready(function() {
+			var sideNavVisible = false;
 			$(window).scroll(function() {
 				var screenTop = $(document).scrollTop();
-				if (screenTop > 80) {
+				if (screenTop > 80 && !sideNavVisible) {
+					sideNavVisible = true;
 					$('div#floating-nav').stop(true,false).animate({left:"0px"},100,"swing");
-				} else {
+				} else if(screenTop <= 80 && sideNavVisible) {
+					sideNavVisible = false;
 					$('div#floating-nav').stop(true,false).animate({left:"-50px"},100,"swing");
 				}
 			});
