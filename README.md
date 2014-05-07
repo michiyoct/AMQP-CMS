@@ -5,4 +5,13 @@ Card Management System that consumes from an AMQP queue. Internal processing use
 
 ###Used Frameworks / Libraries (So far):
 - Apache Tiles
+- jPOS
 - Spring MVC
+- Spring Integration
+
+
+###How to run:
+```
+mvn jetty:run
+```
+Access in _localhost:8080_
