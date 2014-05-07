@@ -73,6 +73,7 @@
 		<div id="site">
 
 			<div id="content">
+			    <tiles:insertAttribute name="content-header" />
 				<tiles:insertAttribute name="body" />
 				<div style="clear: both;"></div>
 			</div>
@@ -85,14 +86,16 @@
 	<script>
 		$(document).ready(function() {
 			var sideNavVisible = false;
+			var nav = $('div#floating-nav');
+			var doc = $(document);
 			$(window).scroll(function() {
-				var screenTop = $(document).scrollTop();
-				if (screenTop > 80 && !sideNavVisible) {
+				var screenTop = doc.scrollTop();
+				if (screenTop > 50 && !sideNavVisible) {
 					sideNavVisible = true;
-					$('div#floating-nav').stop(true,false).animate({left:"0px"},100,"swing");
-				} else if(screenTop <= 80 && sideNavVisible) {
+					nav.stop(true,false).animate({left:"0px"},100,"swing");
+				} else if(screenTop <= 50 && sideNavVisible) {
 					sideNavVisible = false;
-					$('div#floating-nav').stop(true,false).animate({left:"-50px"},100,"swing");
+					nav.stop(true,false).animate({left:"-50px"},100,"swing");
 				}
 			});
 		});
