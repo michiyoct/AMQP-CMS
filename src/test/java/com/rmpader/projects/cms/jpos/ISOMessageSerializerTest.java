@@ -54,6 +54,27 @@ public class ISOMessageSerializerTest {
 
 	}
 	
+	@Test
+	public void testMultipleDeserialize() throws Exception {
+		hexString = "0034080020000000008000002000002911000100400800202000000080000000000000000129110001";
+		byte[] inputBytes = hexString.getBytes();
+		
+		ByteInputStream stream = new ByteInputStream(inputBytes,
+				inputBytes.length);
+		
+		ISOMsg actual1 = (ISOMsg) deserializer.deserialize(stream);
+		ISOMsg actual2 = (ISOMsg) deserializer.deserialize(stream);
+		
+		ISOMsg msg2 = new ISOMsg("0800");
+		msg2.set(3, "200000");
+		msg2.set(41, "29110001");
+		
+		assertEqualISO(msg2, actual1);
+		assertEqualISO(msg, actual2);
+
+	}
+	
+	
 	private void assertEqualISO(ISOMsg expected, ISOMsg actual) throws ISOException{
 		for(int i = 0; i <= 128; i++){
 			assertEquals(expected.getValue(i),actual.getValue(i));

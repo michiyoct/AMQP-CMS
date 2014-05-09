@@ -37,7 +37,9 @@ public class ISOMessageSerializer implements Deserializer<ISOMsg>,
 		try {
 			object.setPackager(packager);
 			byte[] bytes = object.pack();
-			byte[] headerBytes =ISOUtil.zeropad(Integer.toString(bytes.length), lengthHeaderSize).getBytes();
+			byte[] headerBytes = ISOUtil.zeropad(
+					Integer.toString(bytes.length), lengthHeaderSize)
+					.getBytes();
 			BufferedOutputStream stream = new BufferedOutputStream(
 					outputStream, bytes.length + lengthHeaderSize);
 			stream.write(ByteBuffer.allocate(lengthHeaderSize).put(headerBytes)
@@ -55,22 +57,29 @@ public class ISOMessageSerializer implements Deserializer<ISOMsg>,
 			byte[] headerBytes = new byte[lengthHeaderSize];
 			int readBytes = inputStream.read(headerBytes);
 			if (readBytes == lengthHeaderSize) {
-				int messageLength = Integer.valueOf(DatatypeConverter
-						.printHexBinary(headerBytes));
+				int messageLength = asciiToInteger(headerBytes);
 				byte[] bytes = new byte[messageLength];
+				System.out.println(messageLength);
 				inputStream.read(bytes);
 				ISOMsg msg = packager.createISOMsg();
 				msg.setPackager(packager);
 				msg.unpack(bytes);
 				return msg;
 			} else {
-				// DO something
 				return null;
 			}
 		} catch (Exception e) {
 			throw new IOException("Failed to deserialize ISO Message", e);
 		}
 
+	}
+
+	private int asciiToInteger(byte[] bytes) {
+		int value = 0;
+		for (int i = bytes.length - 1, order = 0; i >= 0; i--, order++) {
+			value = (value + ((bytes[i] & 0x0F) * ((int) Math.pow(10, order))));
+		}
+		return value;
 	}
 
 	public int getLengthHeaderSize() {
